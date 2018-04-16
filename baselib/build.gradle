@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation ('com.android.support:support-annotations:25.3.1'){
+        force = true
+    }
+    implementation ('com.android.support:exifinterface:25.3.1'){
+        force = true
+    }
+    //OKGO 网络框架
+    api('com.lzy.net:okgo:3.0.4')
+    //图片加载框架
+    api 'com.squareup.picasso:picasso:2.71828'
+    //图片选择框架
+    api 'com.lzy.widget:imagepicker:0.6.1'
+}
