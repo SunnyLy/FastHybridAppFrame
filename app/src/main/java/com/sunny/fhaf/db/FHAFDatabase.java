@@ -11,7 +11,7 @@ import com.raizlabs.android.dbflow.annotation.Database;
  * @author Sunny
  * @version v1.1.6
  * @date 2018/4/16 20:31
- * @annotation ....
+ * @annotation DBFlow创建数据库
  */
 @Database(name = FHAFDatabase.DB_NAME, version = FHAFDatabase.DB_VERSION)
 public class FHAFDatabase {

@@ -2,6 +2,7 @@ package com.sunny.fhaf;
 
 import android.app.Application;
 
+import com.lzy.okgo.OkGo;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
 /**
@@ -20,6 +21,9 @@ public class FHAFApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //OKGo网络框架初始化
+        OkGo.getInstance().init(this);
+        //DBFlow数据库初始化
         FlowManager.init(this);
     }
 }

@@ -1,14 +1,20 @@
 apply plugin: 'com.android.application'
 //DBFlow 数据库版本
 def dbflow_version = "4.2.4"
+def butterknife_version="8.8.1"
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
         applicationId "com.sunny.fhaf"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+//        jackOptions {
+//            enabled true//如果使用JDK1.8的话，在gradle3.1.1上jackOptions不再需要配置，否则必须配置
+//        }
     }
     buildTypes {
         release {
@@ -16,21 +22,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation('com.android.support:support-annotations:25.3.1') {
-        force = true
-    }
-    implementation('com.android.support:exifinterface:25.3.1') {
-        force = true
-    }
 
+    //Android官方Support支持库
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api('com.android.support:support-annotations:25.3.1') {
+        force = true
+    }
+    api('com.android.support:exifinterface:25.3.1') {
+        force = true
+    }
     //DBFlow数据库
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     api "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     api "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    //Butterknife
+    implementation "com.jakewharton:butterknife:${butterknife_version}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
+    //官方架构组件LifeCycle(extensions包括:ViewModel、LiveData)
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    //本地base库
     api project(':baselib')
 }
