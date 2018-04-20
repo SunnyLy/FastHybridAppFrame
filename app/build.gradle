@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 //DBFlow 数据库版本
 def dbflow_version = "4.2.4"
-def butterknife_version="8.8.1"
+def butterknife_version = "8.8.1"
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -18,28 +18,34 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField("Boolean", "APP_DEBUG", "false")
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            buildConfigField("Boolean", "APP_DEBUG", "true")
+            minifyEnabled false
+        }
+
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    resourcePrefix("app_")
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //Android官方Support支持库
-    api 'com.android.support.constraint:constraint-layout:1.0.2'
-    api('com.android.support:support-annotations:25.3.1') {
-        force = true
-    }
-    api('com.android.support:exifinterface:25.3.1') {
-        force = true
-    }
+    api "com.android.support.constraint:constraint-layout:${rootProject.ext.supports.constraint_layout}"
+    api("com.android.support:support-annotations:${rootProject.ext.supports.support_annotations}")
+    api("com.android.support:exifinterface:${rootProject.ext.supports.exifinterface}")
+    implementation("com.android.support:support-fragment:${rootProject.ext.supports.support_fragment}")
     //DBFlow数据库
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     api "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
@@ -47,8 +53,17 @@ dependencies {
     //Butterknife
     implementation "com.jakewharton:butterknife:${butterknife_version}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
-    //官方架构组件LifeCycle(extensions包括:ViewModel、LiveData)
-    implementation "android.arch.lifecycle:extensions:1.1.1"
     //本地base库
     api project(':baselib')
+    api project(':h5lib')
+}
+configurations.all {
+    resolutionStrategy{
+        cacheChangingModulesFor 0, 'seconds'
+        force "com.android.support:support-annotations:25.3.1"
+        force "com.android.support:exifinterface:${rootProject.ext.supports.exifinterface}"
+        force "com.android.support:support-compat:25.3.1"
+        force "com.android.support:support-core-ui:${rootProject.ext.supports.support_core_ui}"
+        force "com.android.support:support-fragment:${rootProject.ext.supports.support_fragment}"
+    }
 }

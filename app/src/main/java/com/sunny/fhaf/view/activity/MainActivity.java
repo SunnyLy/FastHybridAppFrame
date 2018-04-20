@@ -2,19 +2,17 @@ package com.sunny.fhaf.view.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
 import com.sunny.fhaf.R;
-import com.sunny.fhaf.base.BaseActivity;
+import com.sunny.baselibs.base.BaseActivity;
 import com.sunny.fhaf.db.UserBean;
 import com.sunny.fhaf.model.UserData;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,8 +24,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         testDB();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.app_activity_main;
     }
 
     /**

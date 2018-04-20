@@ -1,6 +1,7 @@
 package com.sunny.fhaf.view.activity;
 
-import com.sunny.fhaf.base.BaseActivity;
+import com.sunny.fhaf.R;
+import com.sunny.baselibs.base.BaseActivity;
 
 /**
  * ------------------------------------------------
@@ -15,4 +16,8 @@ import com.sunny.fhaf.base.BaseActivity;
  * 用于第一次安装，或者展示广告时打开,在Splash闪屏后
  */
 public class WelcomeActivity extends BaseActivity {
+    @Override
+    protected int getLayoutId() {
+        return R.layout.app_activity_welcome;
+    }
 }

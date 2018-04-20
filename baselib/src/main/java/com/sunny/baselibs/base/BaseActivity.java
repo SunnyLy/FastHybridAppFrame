@@ -1,13 +1,17 @@
-package com.sunny.fhaf.base;
+package com.sunny.baselibs.base;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.sunny.baselibs.utils.immersive.ImmersiveStatusBarUtils;
 
 import butterknife.ButterKnife;
 
@@ -24,14 +28,28 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends AppCompatActivity implements LifecycleOwner, View.OnClickListener {
 
+    public Context mContext;
     private LifecycleRegistry mLifecycleRegistry;
+
+    protected abstract int getLayoutId();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
+        //竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setContentView(getLayoutId());
+        //沉浸式
+        ImmersiveStatusBarUtils.getInstance().initBar(this);
         ButterKnife.bind(this);
         mLifecycleRegistry = new LifecycleRegistry(this);
         mLifecycleRegistry.markState(Lifecycle.State.CREATED);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
     }
 
     @Override

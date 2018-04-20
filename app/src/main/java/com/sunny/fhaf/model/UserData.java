@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
 import com.sunny.fhaf.db.UserBean;
+import com.sunny.fhaf.db.UserBean_Table;
 
 /**
  * ------------------------------------------------
@@ -25,13 +26,14 @@ public class UserData extends ViewModel {
     public final MutableLiveData<UserBean> userBeanLiveData = new MutableLiveData<>();
 
     public void getUserInfo() {
-//        UserBean userBean = new Select().from(UserBean.class).
-//                where(UserBean_Table.userId.eq("1000")).querySingle();
-//        if (userBean == null) {
-//            userBean.setUserName("TestForLiveData");
-//            userBean.setUserId("1000");
-//            userBean.save();
-//        }
-//        userBeanLiveData.postValue(userBean);
+        UserBean userBean = new Select().from(UserBean.class).
+                where(UserBean_Table.userId.eq("1000")).querySingle();
+        if (userBean == null) {
+            userBean = new UserBean();
+            userBean.setUserName("TestForLiveData");
+            userBean.setUserId("1000");
+            userBean.save();
+        }
+        userBeanLiveData.postValue(userBean);
     }
 }

@@ -1,6 +1,12 @@
 package com.sunny.fhaf;
 
-import com.sunny.fhaf.base.BaseActivity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
+
+import com.sunny.baselibs.base.BaseActivity;
+import com.sunny.fhaf.utils.PageUtils;
+import com.sunny.fhaf.view.activity.MainActivity;
 
 
 /**
@@ -17,4 +23,20 @@ import com.sunny.fhaf.base.BaseActivity;
  * 的过渡界面，一般停留2s左右。
  */
 public class SplashActivity extends BaseActivity {
+    @Override
+    protected int getLayoutId() {
+        return R.layout.app_activity_splash;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                PageUtils.route(mContext, MainActivity.class);
+                finish();
+            }
+        }, 2000);
+    }
 }
