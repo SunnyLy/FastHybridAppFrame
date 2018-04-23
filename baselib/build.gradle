@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
-def butterknife_version = "8.8.1"
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -29,17 +27,15 @@ dependencies {
     implementation("com.android.support:exifinterface:${rootProject.ext.supports.exifinterface}")
     implementation("com.android.support:support-v4:${rootProject.ext.supports.support_v4}")
 
-    //官方架构组件LifeCycle(extensions包括:ViewModel、LiveData)
-    api "android.arch.lifecycle:extensions:1.1.1"
-    //OKGO 网络框架
-    api('com.lzy.net:okgo:3.0.4')
+    //RxEasyHttp 网络框架
+    api 'com.zhouyou:rxeasyhttp:2.0.5'
     //图片加载框架
     api('com.squareup.picasso:picasso:2.71828')
     //图片选择框架
     api('com.lzy.widget:imagepicker:0.6.1')
-    //Butterknife
-    implementation "com.jakewharton:butterknife:${butterknife_version}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
+
+    //Json相关
+    api 'com.google.code.gson:gson:2.8.0'
 }
 /*configurations {
     all*.exclude module: 'support-compat'

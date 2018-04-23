@@ -5,7 +5,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.sunny.uilib.R;
 
@@ -25,8 +27,23 @@ import com.sunny.uilib.R;
  * <p>
  * 根据自己业务 的不同，可以自行对其布局文件进行修改
  */
-public class FHAFTitleBar extends LinearLayout {
+public class FHAFTitleBar extends LinearLayout implements View.OnClickListener {
     private Context mContext;
+    private ImageView mIvBack;
+    private TextView mTvTitle;
+
+    private String mTitle;
+
+    private IOnBackClickListener onBackClickListener;
+
+    public void setOnBackClickListener(IOnBackClickListener onBackClickListener) {
+        this.onBackClickListener = onBackClickListener;
+    }
+
+    public void setTitle(String title) {
+        this.mTitle = title;
+        if (mTvTitle != null) mTvTitle.setText(title);
+    }
 
     public FHAFTitleBar(Context context) {
         this(context, null);
@@ -40,5 +57,26 @@ public class FHAFTitleBar extends LinearLayout {
         super(context, attrs, defStyleAttr);
         mContext = context;
         View contentView = LayoutInflater.from(context).inflate(R.layout.ui_layout_titlebar, null);
+        initView(contentView);
+        addView(contentView);
+    }
+
+    private void initView(View contentView) {
+        mIvBack = (ImageView) contentView.findViewById(R.id.titlebar_back);
+        mTvTitle = (TextView) contentView.findViewById(R.id.titlebar_title);
+        mIvBack.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (onBackClickListener != null) {
+            onBackClickListener.onBackClick(v);
+        } else {
+
+        }
+    }
+
+    public interface IOnBackClickListener {
+        void onBackClick(View view);
     }
 }

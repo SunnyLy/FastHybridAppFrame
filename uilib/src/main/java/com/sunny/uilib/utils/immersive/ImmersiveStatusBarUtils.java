@@ -1,4 +1,4 @@
-package com.sunny.baselibs.utils.immersive;
+package com.sunny.uilib.utils.immersive;
 
 import android.app.Activity;
 import android.graphics.Color;

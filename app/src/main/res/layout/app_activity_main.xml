@@ -16,9 +16,49 @@
         android:id="@+id/main_btn_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="15dp"
         android:onClick="login"
         android:text="Login"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btn_net"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="网络请求Demo"
+        android:onClick="doNet"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_db"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="数据库Demo"
+        android:onClick="dbOperate"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_h5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="H5 Demo"
+        android:onClick="h5Operate"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="拍照/相册浏览"
+        android:onClick="takeCamera"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_app_frame"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="App框架Demo"
+        android:onClick="appFrame"
         android:textAllCaps="false" />
 
 </LinearLayout>

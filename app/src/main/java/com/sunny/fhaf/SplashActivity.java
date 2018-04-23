@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 
-import com.sunny.baselibs.base.BaseActivity;
 import com.sunny.fhaf.utils.PageUtils;
 import com.sunny.fhaf.view.activity.MainActivity;
+import com.sunny.uilib.base.BaseActivity;
 
 
 /**
@@ -25,6 +25,7 @@ import com.sunny.fhaf.view.activity.MainActivity;
 public class SplashActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
+        removeTitle();
         return R.layout.app_activity_splash;
     }
 

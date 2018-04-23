@@ -11,14 +11,13 @@ import com.sunny.uilib.base.BaseActivity;
  *
  * @author Sunny
  * @version v1.1.6
- * @date 2018/4/17 15:01
- * @annotation 欢迎界面
- * 用于第一次安装，或者展示广告时打开,在Splash闪屏后
+ * @date 2018/4/23 11:39
+ * @annotation 项目中的webview内核采用腾讯X5内核
  */
-public class WelcomeActivity extends BaseActivity {
+public class H5Activity extends BaseActivity {
     @Override
     protected int getLayoutId() {
-        removeTitle();
-        return R.layout.app_activity_welcome;
+        mTitleBar.setTitle(getString(R.string.app_title_h5));
+        return R.layout.app_activity_h5;
     }
 }

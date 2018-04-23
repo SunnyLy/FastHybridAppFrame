@@ -1,4 +1,4 @@
-package com.sunny.baselibs.base;
+package com.sunny.uilib.base;
 
 import android.support.v4.app.Fragment;
 

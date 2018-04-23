@@ -56,6 +56,7 @@ dependencies {
     //本地base库
     api project(':baselib')
     api project(':h5lib')
+    api project(':uilib')
 }
 configurations.all {
     resolutionStrategy{

@@ -1,2 +1,2 @@
 # FastHybridAppFrame
-快速开发的混合应用开发框架
+Android应用快速开发框架

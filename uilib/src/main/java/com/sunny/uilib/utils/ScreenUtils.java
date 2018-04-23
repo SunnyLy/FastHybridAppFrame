@@ -1,30 +1,15 @@
-package com.sunny.fhaf.utils;
+package com.sunny.uilib.utils;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.os.Build;
-import android.os.Environment;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
-import com.sunny.fhaf.R;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.Properties;
 
 /**
  * ------------------------------------------------

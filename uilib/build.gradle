@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.jakewharton.butterknife'
+def butterknife_version = "8.8.1"
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -22,5 +23,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //官方架构组件LifeCycle(extensions包括:ViewModel、LiveData)
+    api 'android.arch.lifecycle:extensions:1.1.1'
+    //Butterknife
+    implementation "com.jakewharton:butterknife:${butterknife_version}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
+    implementation 'com.android.support:appcompat-v7:25.3.1'
 }

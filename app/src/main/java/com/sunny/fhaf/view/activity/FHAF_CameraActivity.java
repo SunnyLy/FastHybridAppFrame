@@ -11,14 +11,13 @@ import com.sunny.uilib.base.BaseActivity;
  *
  * @author Sunny
  * @version v1.1.6
- * @date 2018/4/17 15:01
- * @annotation 欢迎界面
- * 用于第一次安装，或者展示广告时打开,在Splash闪屏后
+ * @date 2018/4/23 11:39
+ * @annotation Android拍照，相册浏览
  */
-public class WelcomeActivity extends BaseActivity {
+public class FHAF_CameraActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
-        removeTitle();
-        return R.layout.app_activity_welcome;
+        setTitle(R.string.app_title_camera);
+        return R.layout.app_activity_camera;
     }
 }

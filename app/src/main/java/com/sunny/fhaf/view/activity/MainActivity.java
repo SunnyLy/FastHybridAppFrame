@@ -8,9 +8,10 @@ import android.widget.TextView;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
 import com.sunny.fhaf.R;
-import com.sunny.baselibs.base.BaseActivity;
 import com.sunny.fhaf.db.UserBean;
 import com.sunny.fhaf.model.UserData;
+import com.sunny.fhaf.utils.PageUtils;
+import com.sunny.uilib.base.BaseActivity;
 
 import butterknife.BindView;
 
@@ -29,6 +30,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
+        setTitle(R.string.app_title_main);
         return R.layout.app_activity_main;
     }
 
@@ -57,5 +59,30 @@ public class MainActivity extends BaseActivity {
 
         findViewById(R.id.main_btn_login).setOnClickListener(v -> userData.getUserInfo());
 
+    }
+
+    /**
+     * 网络请求
+     *
+     * @param view
+     */
+    public void doNet(View view) {
+        PageUtils.route(mContext, NetActivity.class);
+    }
+
+    public void dbOperate(View view) {
+        PageUtils.route(mContext, DBActivity.class);
+    }
+
+    public void h5Operate(View view) {
+        PageUtils.route(mContext, H5Activity.class);
+    }
+
+    public void takeCamera(View view) {
+        PageUtils.route(mContext, FHAF_CameraActivity.class);
+    }
+
+    public void appFrame(View view) {
+        PageUtils.route(mContext, AppFrameActivity.class);
     }
 }

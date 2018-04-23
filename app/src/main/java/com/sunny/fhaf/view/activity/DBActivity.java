@@ -11,14 +11,14 @@ import com.sunny.uilib.base.BaseActivity;
  *
  * @author Sunny
  * @version v1.1.6
- * @date 2018/4/17 15:01
- * @annotation 欢迎界面
- * 用于第一次安装，或者展示广告时打开,在Splash闪屏后
+ * @date 2018/4/23 11:37
+ * @annotation 数据库
+ * 这里采用DBFlow数据库框架
  */
-public class WelcomeActivity extends BaseActivity {
+public class DBActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
-        removeTitle();
-        return R.layout.app_activity_welcome;
+        setTitle(R.string.app_title_db);
+        return R.layout.app_activity_db;
     }
 }

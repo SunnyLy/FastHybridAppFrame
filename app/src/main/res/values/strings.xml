@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">混合开发</string>
+    <string name="app_title_main">主界面</string>
+    <string name="app_title_frame">App框架</string>
+    <string name="app_title_net">Okgo网络请求</string>
+    <string name="app_title_db">DBFlow数据库操作</string>
+    <string name="app_title_h5">X5Webview</string>
+    <string name="app_title_camera">拍照/相册浏览</string>
 </resources>

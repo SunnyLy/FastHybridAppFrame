@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Get请求"
+        android:textAllCaps="false"
+        android:onClick="getRequest"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Post请求"
+        android:textAllCaps="false"
+        android:onClick="postRequest"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Post提交数据至云"
+        android:textAllCaps="false"
+        android:onClick="postRequestByParams"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cookie管理"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/tv_net_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="信息展示:" />
+</LinearLayout>

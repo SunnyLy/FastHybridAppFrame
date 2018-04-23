@@ -1,4 +1,4 @@
-package com.sunny.baselibs.utils.immersive;
+package com.sunny.uilib.utils.immersive;
 
 /**
  * Created by geyifeng on 2017/4/25.

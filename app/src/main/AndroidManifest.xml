@@ -25,6 +25,11 @@
         </activity>
 
         <activity android:name=".view.activity.MainActivity" />
+        <activity android:name=".view.activity.NetActivity" />
+        <activity android:name=".view.activity.DBActivity" />
+        <activity android:name=".view.activity.H5Activity" />
+        <activity android:name=".view.activity.FHAF_CameraActivity" />
+        <activity android:name=".view.activity.AppFrameActivity" />
     </application>
 
 </manifest>

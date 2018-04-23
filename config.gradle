@@ -1,7 +1,7 @@
 ext {
     android = [compileSdkVersion: 25,
                buildToolsVersion: "27.0.3",
-               minSdkVersion    : 15,
+               minSdkVersion    : 16,
                targetSdkVersion : 25,
     ]
 
@@ -10,6 +10,7 @@ ext {
                 support_compat   : "25.3.1",
                 support_core_ui   : "25.3.1",
                 support_v4   : "25.3.1",
+                support_v7   : "25.3.1",
                 support_core_utils   : "25.3.1",
                 exifinterface      : "25.3.1",
                 constraint_layout  : "1.0.2"]
