@@ -1,5 +1,11 @@
 package com.sunny.h5lib;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+
+import com.sunny.h5lib.service.PreLoadX5Service;
+
 /**
  * ------------------------------------------------
  * Copyright © 2014-2018 CLife. All Rights Reserved.
@@ -19,5 +25,15 @@ public class WebviewManager {
     }
 
     private WebviewManager() {
+    }
+
+    /**
+     * 提前初始化Webview
+     *
+     * @param context
+     */
+    public void preInitWebview(@NonNull Context context) {
+        Intent x5Intent = new Intent(context, PreLoadX5Service.class);
+        context.startService(x5Intent);
     }
 }

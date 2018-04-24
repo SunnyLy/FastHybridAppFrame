@@ -8,6 +8,7 @@ import com.sunny.fhaf.interceptor.CustomSignInterceptor;
 import com.sunny.fhaf.model.AppConstant;
 import com.sunny.fhaf.model.RequestUrls;
 import com.sunny.fhaf.utils.SystemInfoUtils;
+import com.sunny.h5lib.WebviewManager;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.cache.converter.SerializableDiskConverter;
 import com.zhouyou.http.cache.model.CacheMode;
@@ -42,6 +43,7 @@ public class FHAFApplication extends Application {
         initEasyHttpConfig();
         //DBFlow数据库初始化
         FlowManager.init(this);
+        WebviewManager.getInstance().preInitWebview(this);
     }
 
     private void initEasyHttpConfig() {

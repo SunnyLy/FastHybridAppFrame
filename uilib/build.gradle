@@ -27,7 +27,7 @@ dependencies {
     //官方架构组件LifeCycle(extensions包括:ViewModel、LiveData)
     api 'android.arch.lifecycle:extensions:1.1.1'
     //Butterknife
-    implementation "com.jakewharton:butterknife:${butterknife_version}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
-    implementation 'com.android.support:appcompat-v7:25.3.1'
+    api "com.jakewharton:butterknife:${rootProject.ext.thirds.butterknife_version}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.thirds.butterknife_version}"
+    api 'com.android.support:appcompat-v7:25.3.1'
 }
