@@ -20,7 +20,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 @Table(name = "UserBean", database = FHAFDatabase.class)
 public class UserBean extends BaseModel {
 
-    @PrimaryKey
+    @PrimaryKey(autoincrement = true)
     public long id;
     @Column
     public String userId;
