@@ -71,7 +71,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Lifecycl
         setContentView(getLayoutId());
         //沉浸式
         ImmersiveStatusBarUtils.getInstance().initBar(this);
-        ButterKnife.bind(this);
         mLifecycleRegistry = new LifecycleRegistry(this);
         mLifecycleRegistry.markState(Lifecycle.State.CREATED);
     }
@@ -86,6 +85,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Lifecycl
         View cotent = LayoutInflater.from(mContext).inflate(layoutId, null);
         if (cotent != null)
             contentLayout.addView(cotent);
+        super.setContentView(this.parentLayout);
+        ButterKnife.bind(this);
+        this.initCustomTitleConfig();
     }
 
 
@@ -121,8 +123,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Lifecycl
         android.widget.LinearLayout.LayoutParams contentParams = new android.widget.LinearLayout.LayoutParams(-1, -1);
         this.contentLayout.setLayoutParams(contentParams);
         this.parentLayout.addView(this.contentLayout);
-        super.setContentView(this.parentLayout);
-        this.initCustomTitleConfig();
     }
 
     private void initCustomTitleConfig() {

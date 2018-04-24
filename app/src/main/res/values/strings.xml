@@ -6,4 +6,10 @@
     <string name="app_title_db">DBFlow数据库操作</string>
     <string name="app_title_h5">X5Webview</string>
     <string name="app_title_camera">拍照/相册浏览</string>
+
+    <string name="app_tab_home">首页</string>
+    <string name="app_tab_sleep">Zzz</string>
+    <string name="app_tab_goodnight">说晚安</string>
+    <string name="app_tab_discover">漫游</string>
+    <string name="app_tab_mine">我</string>
 </resources>

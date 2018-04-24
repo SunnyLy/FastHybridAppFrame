@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/FHAFApp.TAB"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_home_selector"
+            android:text="@string/app_tab_home" />
+
+        <RadioButton
+            android:id="@+id/rb_goodnight"
+            style="@style/FHAFApp.TAB"
+            android:drawableTop="@drawable/tab_goodnight_selector"
+            android:text="@string/app_tab_goodnight" />
+
+        <RadioButton
+            android:id="@+id/rb_coaxtosleep"
+            style="@style/FHAFApp.TAB"
+            android:drawableTop="@drawable/tab_sleep_selector"
+            android:text="@string/app_tab_sleep" />
+
+        <RadioButton
+            android:id="@+id/rb_discover"
+            style="@style/FHAFApp.TAB"
+            android:drawableTop="@drawable/tab_discover_selector"
+            android:text="@string/app_tab_discover" />
+
+        <RadioButton
+            android:id="@+id/rb_my"
+            style="@style/FHAFApp.TAB"
+            android:drawableTop="@drawable/tab_mine_selector"
+            android:text="@string/app_tab_mine" />
+
+    </RadioGroup>
+</RelativeLayout>

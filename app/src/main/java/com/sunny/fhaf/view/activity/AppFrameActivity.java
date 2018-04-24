@@ -1,6 +1,9 @@
 package com.sunny.fhaf.view.activity;
 
+import android.view.View;
+
 import com.sunny.fhaf.R;
+import com.sunny.fhaf.utils.PageUtils;
 import com.sunny.uilib.base.BaseActivity;
 
 /**
@@ -19,5 +22,9 @@ public class AppFrameActivity extends BaseActivity {
     protected int getLayoutId() {
         setTitle(getString(R.string.app_title_frame));
         return R.layout.app_activity_frame;
+    }
+
+    public void bottomTab(View view) {
+        PageUtils.route(mContext, CommBottomTabActivity.class);
     }
 }

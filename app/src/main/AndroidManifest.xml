@@ -31,6 +31,7 @@
         <activity android:name=".view.activity.H5Activity" />
         <activity android:name=".view.activity.FHAF_CameraActivity" />
         <activity android:name=".view.activity.AppFrameActivity" />
+        <activity android:name=".view.activity.CommBottomTabActivity" />
     </application>
 
 </manifest>
