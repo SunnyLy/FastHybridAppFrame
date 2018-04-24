@@ -53,6 +53,8 @@ dependencies {
     //Butterknife
     implementation "com.jakewharton:butterknife:${butterknife_version}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
+    //RxPermissions动态权限管理
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
     //本地base库
     api project(':baselib')
     api project(':h5lib')

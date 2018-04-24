@@ -3,10 +3,13 @@ package com.sunny.fhaf;
 import android.app.Application;
 import android.content.Context;
 
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.view.CropImageView;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.sunny.fhaf.interceptor.CustomSignInterceptor;
 import com.sunny.fhaf.model.AppConstant;
 import com.sunny.fhaf.model.RequestUrls;
+import com.sunny.fhaf.utils.PicassoImageLoader;
 import com.sunny.fhaf.utils.SystemInfoUtils;
 import com.sunny.h5lib.WebviewManager;
 import com.zhouyou.http.EasyHttp;
@@ -43,7 +46,24 @@ public class FHAFApplication extends Application {
         initEasyHttpConfig();
         //DBFlow数据库初始化
         FlowManager.init(this);
+        //Webview初始化
         WebviewManager.getInstance().preInitWebview(this);
+        //ImageLoader初始化
+        initImageLoader();
+    }
+
+    private void initImageLoader() {
+        ImagePicker imagePicker = ImagePicker.getInstance();
+        imagePicker.setImageLoader(new PicassoImageLoader());   //设置图片加载器
+        imagePicker.setShowCamera(true);  //显示拍照按钮
+        imagePicker.setCrop(true);        //允许裁剪（单选才有效）
+        imagePicker.setSaveRectangle(true); //是否按矩形区域保存
+        imagePicker.setSelectLimit(9);    //选中数量限制
+        imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
+        imagePicker.setFocusWidth(800);   //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setFocusHeight(800);  //裁剪框的高度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setOutPutX(1000);//保存文件的宽度。单位像素
+        imagePicker.setOutPutY(1000);//保存文件的高度。单位像素
     }
 
     private void initEasyHttpConfig() {
