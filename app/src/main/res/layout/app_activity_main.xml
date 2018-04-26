@@ -61,4 +61,16 @@
         android:text="App框架Demo"
         android:textAllCaps="false" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="开始倒计时"
+        android:onClick="startCountDown"/>
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""/>
+
 </LinearLayout>

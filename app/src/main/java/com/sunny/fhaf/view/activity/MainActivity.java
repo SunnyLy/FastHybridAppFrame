@@ -1,5 +1,6 @@
 package com.sunny.fhaf.view.activity;
 
+import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.raizlabs.android.dbflow.sql.language.Select;
+import com.sunny.baselibs.utils.CountDownTimer;
 import com.sunny.fhaf.R;
 import com.sunny.fhaf.db.UserBean;
 import com.sunny.fhaf.model.UserData;
@@ -21,6 +23,8 @@ public class MainActivity extends BaseActivity {
     TextView mTvInfo;
     @BindView(R.id.main_btn_login)
     Button mBtnLogin;
+    @BindView(R.id.tv_count)
+    TextView mTvCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,5 +88,28 @@ public class MainActivity extends BaseActivity {
 
     public void appFrame(View view) {
         PageUtils.route(mContext, AppFrameActivity.class);
+    }
+
+    public void startCountDown(View view) {
+        CountDownTimer countDownTimer = CountDownTimer.getInstance((Activity) mContext, 60);
+        if (countDownTimer != null) {
+            countDownTimer.setCountDownCallback(new CountDownTimer.ICountDownCallback() {
+                @Override
+                public void onStart() {
+                    mTvCount.setText("开始倒计时");
+                }
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    mTvCount.setText("倒计时：" + millisUntilFinished);
+                }
+
+                @Override
+                public void onFinish() {
+                    mTvCount.setText("倒计时结束");
+                }
+            });
+            countDownTimer.startCountDown();
+        }
     }
 }
