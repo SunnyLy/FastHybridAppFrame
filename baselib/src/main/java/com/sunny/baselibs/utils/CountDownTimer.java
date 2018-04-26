@@ -25,6 +25,7 @@ public class CountDownTimer {
     private ScheduledExecutorService mCountDownService;
     private ScheduledFuture<?> scheduledFuture;
     private int mLessTime = 60;//默认是60s
+    private int mTimeTemp = mLessTime;
     private boolean isCounting = false;
 
     private static CountDownTimer countDownTimer;
@@ -55,6 +56,7 @@ public class CountDownTimer {
     public CountDownTimer(Activity activity, int time) {
         this.mActivity = activity;
         if (time > 0) mLessTime = time;
+        mTimeTemp = mLessTime;
         if (mCountDownService == null) {
             mCountDownService = Executors.newScheduledThreadPool(1);
         }
@@ -65,6 +67,7 @@ public class CountDownTimer {
      */
     public void startCountDown() {
         if (mCountDownService != null && !isCounting) {
+            mLessTime = mTimeTemp;
             if (countDownCallback != null) {
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
